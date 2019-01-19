@@ -4,45 +4,47 @@ import { ExpoLinksView } from '@expo/samples';
 import Touchable from 'react-native-platform-touchable';
 import styled from 'styled-components/native';
 import { WebBrowser } from 'expo';
+import ActionButton from '../components/actionButton';
 
-export default class HabitsScreen extends React.Component {
-  static navigationOptions = {
+export default function HabitsScreen() {
+  const navigationOptions = {
     title: 'Habits',
   };
 
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <Touchable onPress={this._handleHelpPress}>
-          <Text>
-             Be happy
-          </Text>
-        </Touchable>
-        <Touchable>
-          <Text>
-            Task 2
-          </Text>
-        </Touchable>
-        <Touchable>
-          <Text>
-            Task 3
-          </Text>
-        </Touchable>
-      </ScrollView>
-    );
-  }
-
-  _handleHelpPress = () => {
+  const _handleHelpPress = () => {
     WebBrowser.openBrowserAsync(
-      'https://xvideos.com'
+      'https://facebook.com'
     );
   };
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      paddingTop: 15,
+      backgroundColor: '#fff',
+    },
+  });
+
+    return (
+      <View style={{flex:1}}>
+        <ScrollView style={styles.container}>
+          <Touchable onPress={this._handleHelpPress}>
+            <Text>
+              Be happy
+            </Text>
+          </Touchable>
+          <Touchable>
+            <Text>
+              Task 2
+            </Text>
+          </Touchable>
+          <Touchable>
+            <Text>
+              Task 3
+            </Text>
+          </Touchable>
+        </ScrollView>
+        <ActionButton />
+      </View>
+    );
+}
