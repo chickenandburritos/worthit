@@ -2,7 +2,7 @@ import React from 'react';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StyleSheet, View } from 'react-native';
-import colors from '../../constants/Colors';
+import colors from '../../constants/colors';
 
 export default class MyActionButton extends React.Component {
   render() {

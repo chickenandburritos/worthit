@@ -1,10 +1,10 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 import Touchable from 'react-native-platform-touchable';
 import styled from 'styled-components/native';
 import { WebBrowser } from 'expo';
-import ActionButton from '../components/actionButton';
+import { ActionButton } from '../components';
+import { colors } from '../constants';
 
 export default function HabitsScreen() {
   const navigationOptions = {
@@ -17,18 +17,10 @@ export default function HabitsScreen() {
     );
   };
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingTop: 15,
-      backgroundColor: '#fff',
-    },
-  });
-
     return (
       <View style={{flex:1}}>
-        <ScrollView style={styles.container}>
-          <Touchable onPress={this._handleHelpPress}>
+        <MainScrollView backgroundColor={colors.mainBackground}>
+          <Touchable onPress={_handleHelpPress}>
             <Text>
               Be happy
             </Text>
@@ -43,8 +35,14 @@ export default function HabitsScreen() {
               Task 3
             </Text>
           </Touchable>
-        </ScrollView>
+        </MainScrollView>
         <ActionButton />
       </View>
     );
 }
+
+const MainScrollView = styled.ScrollView<{ backgroundColor: string }>`
+  flex: 1;
+  padding-top: 15;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+`
