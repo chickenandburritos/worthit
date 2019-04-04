@@ -1,21 +1,24 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
-
-import TabBarIcon from '../components/TabBarIcon';
+import { TabBarIcon } from '../components';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import HabitsScreen from '../screens/HabitsScreen';
-import colors from '../constants/Colors';
+import colors from '../constants/colors';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
 
+export interface IProps {
+  focused: boolean
+}
+
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: IProps) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -33,7 +36,7 @@ const LinksStack = createStackNavigator({
 
 LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: IProps) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
@@ -47,7 +50,7 @@ const SettingsStack = createStackNavigator({
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: IProps) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
@@ -61,7 +64,7 @@ const HabitsStack = createStackNavigator({
 
 HabitsStack.navigationOptions = {
   tabBarLabel: 'Habits',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: IProps) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
